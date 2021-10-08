@@ -23,8 +23,8 @@ export const SingleCityList: React.FC = () => {
 
     return (
         <>
-            <div className="location-spoiler">
-                <h5 className="location-spoiler-heading">
+            <div className="location-banner">
+                <h5 className="location-banner-heading">
                     Daily weather forecast for <b>
                     <pre>{name.toUpperCase()}</pre>
                 </b>
