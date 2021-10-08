@@ -24,4 +24,4 @@ When you enter a city in the input field, you will have access to tips that you 
 -  Publish files on GitHub [gh-pages](https://github.com/tschaub/gh-pages)
 
 #Link for demonstration :
- - [Demonstration](https://github.com/tschaub/gh-pages)
+ - [Demonstration](https://andrey-golubenko.github.io/react-weather/)

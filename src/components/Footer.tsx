@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
                     © {new Date().getFullYear()} Copyright Text
                     <a
                         className="grey-text text-lighten-4 right"
-                        href="https://andrey-golubenko.github.io/react-weather/"
+                        href="https://github.com/Andrey-Golubenko/react-weather.git"
                         target="_blank"
                         rel="noreferrer"
                     >Repo</a>
