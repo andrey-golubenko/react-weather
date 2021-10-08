@@ -29,7 +29,7 @@ export const Search: React.FC<ISearchProps> = (props) => {
                         type="search"
                         placeholder="Search City"
                         onKeyDown={onKeyCatcher}
-                        onKeyPress={onSubmitButton}
+                        onKeyUp={onSubmitButton}
                         onChange={onChangeInputVal}
                         onBlur={onClearField}
                         value={textValue}

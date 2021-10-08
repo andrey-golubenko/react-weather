@@ -128,10 +128,10 @@ export const AutoComplete: React.FC = () => {
                 // checking is required city already in the store
                 const isInStore = citiesFromStore.filter(item => item.name === encodeURIComponent(textValue.split(',')[0]));
                 if (!isInStore.length) {
-                    handleClearField();
                     dispatch(fetchCities(textValue));
                     clearFocusSuggestion();
                     setTextValue('');
+                    handleClearField();
                 } else {
                     setTextValue('');
                     dispatch(setError('You already have such a city'))
