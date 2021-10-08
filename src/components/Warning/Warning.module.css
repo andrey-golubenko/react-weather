@@ -1,0 +1,29 @@
+.warningMessage {
+    position: relative;
+    padding: 1.2rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+}
+
+.warningMessage p {
+    margin: .2rem;
+    padding: .5rem;
+}
+
+.closeWarningMessage {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    .closeWarningMessage {
+        top: 10%;
+    }
+}

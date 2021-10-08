@@ -1,0 +1,29 @@
+.successMessage {
+    position: relative;
+    padding: 1.2rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.successMessage p {
+    margin: .2rem;
+    padding: .5rem;
+}
+
+.closeSuccessMessage {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    .closeSuccessMessage {
+        top: 10%;
+    }
+}

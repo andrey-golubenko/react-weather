@@ -1,0 +1,383 @@
+@import 'weather-icons.css';
+
+@font-face {
+    font-family: "weathericons";
+    font-weight: normal;
+    font-style: normal;
+    src: url("./fonts/weathericons/weathericons-regular-webfont.eot");
+    src: url("./fonts/weathericons/weathericons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/weathericons/weathericons-regular-webfont.woff") format("woff"), url("./fonts/weathericons/weathericons-regular-webfont.ttf") format("truetype");
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+nav {
+    padding: 0 1rem;
+}
+
+.content {
+    min-height: calc(100vh - 70px - 64px);
+    padding: 1.5rem 0;
+}
+
+.location-spoiler, .error-location-spoiler {
+    padding: 1.2rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.location-spoiler {
+    box-shadow: 0 0 25rem rgba(43, 187, 173, 0.7) inset;
+}
+
+.location-spoiler .location-spoiler-heading {
+    letter-spacing: 2.5px;
+    line-height: 135%;
+}
+
+.error-location-spoiler {
+    background: rgba(255, 243, 205, 1);
+}
+
+.location-spoiler-heading b {
+    font-size: 1.8rem;
+}
+
+.location-spoiler-text {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.single-item-list {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.card {
+    width: 285px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-content .card-geo-data {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.card .card-content .card-geo-data .card-title {
+    line-height: 1.5rem
+}
+
+
+.card-geo-data .card-title:first-child {
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+.card-geo-data .card-title:last-child {
+    font-size: 1.35rem;
+    text-align: end;
+    font-weight: 400;
+    max-width: 45%;
+}
+
+.card-content .card-temperature {
+    display: flex;
+    flex-wrap: nowrap;
+    line-height: 1.25;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.card-content .card-temperature .card-temperature-degrees {
+    width: 50%;
+    color: #2bbbad;
+    font-size: 6rem;
+    text-align: end;
+    margin-top: 4rem;
+    margin-right: auto;
+    line-height: .7;
+}
+
+.card-temperature-measure {
+    width: 50%;
+}
+
+.card-temperature-measure .temperature-measure-kind {
+    color: #2bbbad;
+    display: flex;
+    font-size: 1.8rem;
+    margin-left: .2rem;
+}
+
+.card-temperature-measure .temperature-measure-kind .temperature-measure-delimiter {
+    margin: 0 10px;
+    width: 2px;
+    background: #2bbbad;
+}
+
+.temperature-measure-kind .temperature-measure-cel,
+.temperature-measure-kind .temperature-measure-far {
+    cursor: pointer;
+    opacity: 1;
+    padding: .4rem .9rem .4rem .5rem;
+    box-shadow: 0 0 10px #2bbbad inset;
+    border-radius: 20%;
+}
+
+.temperature-measure-kind .temperature-measure-cel.active-degree,
+.temperature-measure-kind .temperature-measure-far.active-degree {
+    box-shadow: 0 0 5px #2bbbad;
+}
+
+
+.temperature-measure-max, .temperature-measure-min {
+    min-width: 45%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    line-height: .8;
+    font-size: 1.15rem;
+}
+
+.temperature-mark {
+    color: #14BA50;
+    font-size: 1.5rem;
+}
+
+.temperature-measure-minmax {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: .3rem;
+}
+
+.temperature-measure-minmax .temperature-text {
+    margin: 1.5rem .2rem 0 !important;
+}
+
+.card-content .card-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.card-content .card-details .card-details-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card-content .card-details .card-details-wrap .details-icon {
+    font-size: 4.5rem;
+    color: #3ed5bd;
+}
+
+.card-details-wrap .detail-description {
+    flex-basis: 65%;
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.card-details .detail-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: .4rem;
+}
+
+.card-details .detail-box .detail-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.card-details .detail-box .detail-indicator .detail-info {
+    font-size: 1.35rem;
+}
+
+.card-details .detail-box .detail-indicator .detail-info .detail-measure {
+    margin-left: .3rem;
+    color: #3ed5bd;
+}
+
+.card-details .detail-box .detail-indicator .detail-name {
+    font-weight: 500;
+}
+
+.card-details-day {
+    margin-bottom: 3rem;
+}
+
+.card-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.card-action .removal-tool {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 8px red inset;
+    margin: 5px;
+}
+
+.card-action .removal-tool .city-delete {
+    cursor: pointer;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: .7rem;
+}
+
+.day-card {
+    width: 110px;
+    max-width: 250px;
+}
+
+.day-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: unset;
+    margin-top: -3rem;
+}
+
+.card-content-day {
+    padding: 10px !important;
+    margin-bottom: 3rem;
+}
+
+.card-content.card-content-day .card-geo-data-day {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: unset;
+}
+
+.card-geo-data-day p {
+    text-align: center;
+}
+
+.card-geo-data-day h6 {
+    font-size: 1.4rem;
+}
+
+.card-temperature-day {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    height: 180px;
+    margin-top: 5rem;
+}
+
+.temperature-day {
+    position: absolute;
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.20rem;
+    font-weight: 600;
+    line-height: 2;
+    box-shadow: 0 0 30px rgba(245, 240, 50, .8) inset;
+}
+
+.card-details-wrap .detail-description-day {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    min-height: 4.38rem;
+}
+
+.detail-box-day {
+    flex-direction: column !important;
+}
+
+img {
+    max-width: 100%
+}
+
+.search-field {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-column-gap: 2rem;
+}
+
+.search-btn {
+    font-size: 1.2rem;
+}
+
+input[type="search"] {
+    width: 80% !important;
+    margin-bottom: 2rem !important;
+    font-size: 1.1rem !important;
+}
+
+.search-autocomplete {
+    position: absolute;
+    list-style-type: none;
+    left: 2rem;
+    top: 3.5rem;
+    width: 78.5%;
+    padding: 0;
+    margin: 0 auto;
+    border: 2px solid #1FA69D;
+    border-top: none;
+    font-size: 1.2rem;
+    z-index: 5;
+}
+
+.search-autocomplete-item {
+    padding: 0.5rem 1.7rem;
+    border-bottom: 2px solid #fff;
+    background-color: #fff;
+    color: #495758;
+    cursor: pointer;
+    transition: .5s all;
+}
+
+.search-autocomplete-item:hover,
+.search-autocomplete-item-color {
+    border-bottom: 2px solid #1FA69D;
+}
