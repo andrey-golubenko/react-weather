@@ -9,7 +9,7 @@ export const CityList: React.FC = () => {
     const cities = useAppSelector(state => state.weather.cities);
 
     const listClass = ['list'];
-    if (cities.length <= 3) {
+    if (cities.length <= 2) {
         listClass.push('single-item-list')
     }
 
