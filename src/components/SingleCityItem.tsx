@@ -23,7 +23,7 @@ export const SingleCityItem: React.FC<IOneDay> = (props) => {
 
     const time = getHourlyTime(dt);
     const date = getWeatherDate(dt);
-    const iconSrc = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    const iconSrc = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     const integerTemp = Math.ceil(temp);
 
 
