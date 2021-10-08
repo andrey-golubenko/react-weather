@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-weather/static/css/main.b2fa8ef3.chunk.css",
+    "main.js": "/react-weather/static/js/main.3f484756.chunk.js",
+    "main.js.map": "/react-weather/static/js/main.3f484756.chunk.js.map",
+    "runtime-main.js": "/react-weather/static/js/runtime-main.e0d4f396.js",
+    "runtime-main.js.map": "/react-weather/static/js/runtime-main.e0d4f396.js.map",
+    "static/js/2.7cb3b528.chunk.js": "/react-weather/static/js/2.7cb3b528.chunk.js",
+    "static/js/2.7cb3b528.chunk.js.map": "/react-weather/static/js/2.7cb3b528.chunk.js.map",
+    "index.html": "/react-weather/index.html",
+    "static/css/main.b2fa8ef3.chunk.css.map": "/react-weather/static/css/main.b2fa8ef3.chunk.css.map",
+    "static/js/2.7cb3b528.chunk.js.LICENSE.txt": "/react-weather/static/js/2.7cb3b528.chunk.js.LICENSE.txt",
+    "static/media/iconDelete.34aa26f4.svg": "/react-weather/static/media/iconDelete.34aa26f4.svg",
+    "static/media/index.css": "/react-weather/static/media/weathericons-regular-webfont.bb2ec001.eot"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e0d4f396.js",
+    "static/js/2.7cb3b528.chunk.js",
+    "static/css/main.b2fa8ef3.chunk.css",
+    "static/js/main.3f484756.chunk.js"
+  ]
+}
