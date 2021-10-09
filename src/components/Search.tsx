@@ -13,8 +13,6 @@ export const Search: React.FC<ISearchProps> = (props) => {
         textValue
     } = props;
 
-    console.log(children);
-
     const hasError = useAppSelector(state => state.weather.error);
 
     const onChangeInputVal = (event: React.ChangeEvent<HTMLInputElement>) => {
