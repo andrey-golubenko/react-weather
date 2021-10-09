@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from '../app/hooks'
 import {useParams} from 'react-router-dom'
 import {fetchSingleCity} from '../app/weatherSlice'
 import {SingleCityItem} from '../components/SingleCityItem'
-import {fetchChosenCity} from '../unils/fetchChosenCity'
+import {fetchChosenCity} from '../utils/fetchChosenCity'
 
 export const SingleCityList: React.FC = () => {
 

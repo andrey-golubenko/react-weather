@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useAppDispatch, useAppSelector} from '../app/hooks'
-import {fetchDataLocation} from '../unils/fetchDataLocation'
+import {fetchDataLocation} from '../utils/fetchDataLocation'
 import {getCurrentLocation} from '../app/weatherSlice'
 import {SuccessLocation} from './SuccessLocation'
 import {ErrorLocation} from './ErrorLocation'

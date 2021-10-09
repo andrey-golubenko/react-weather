@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {useAppDispatch, useAppSelector} from '../app/hooks'
 import {fetchCities, setLocationError} from '../app/weatherSlice'
-import {fetchDataLocation} from '../unils/fetchDataLocation'
+import {fetchDataLocation} from '../utils/fetchDataLocation'
 import {Preloader} from '../components/Preloader'
 import {Alert} from '../components/Alert/Alert'
 import {Warning} from '../components/Warning/Warning'
@@ -34,9 +34,9 @@ export const Home: React.FC = () => {
                 getSavedCities()
             } else {
                 fetchDataLocation()
-                    .then(locationInfo => locationInfo ?
-                        dispatch(fetchCities(locationInfo)) :
-                        dispatch(setLocationError('Location is not defined'))
+                    .then(locationInfo => locationInfo
+                        ? dispatch(fetchCities(locationInfo))
+                        : dispatch(setLocationError('Location is not defined'))
                     );
             }
         }

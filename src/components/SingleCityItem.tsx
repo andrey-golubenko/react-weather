@@ -1,7 +1,7 @@
 import React from 'react'
-import {getHourlyTime} from '../unils/getHourlyTime'
+import {getHourlyTime} from '../utils/getHourlyTime'
 import {IOneDay} from '../interfaces'
-import {getWeatherDate} from '../unils/getWeatherDate'
+import {getWeatherDate} from '../utils/getWeatherDate'
 
 
 export const SingleCityItem: React.FC<IOneDay> = (props) => {

@@ -1,8 +1,8 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import {API_KEY, API_URL} from '../config'
 import {IInitWeatherSliceState} from '../interfaces'
-import {getWeatherDate} from '../unils/getWeatherDate';
-import {iconsMark} from '../unils/iconsMark';
+import {getWeatherDate} from '../utils/getWeatherDate';
+import {iconsMark} from '../utils/iconsMark';
 
 
 const initialState: IInitWeatherSliceState = {
