@@ -1,41 +1,60 @@
 import React from 'react';
 
+/*
 export interface ICity {
     [key: string]: string | {}
     coord: {
-        lon : number,
-        lat : number
+        lon : number, // coordLat
+        lat : number // coordLon
     },
     weather: [
         {
             [key: string]: string,
             icon: string,
-            description: string,
+            description: string, // weatherDescription
         }
     ],
     main: {
         [key: string]: string | number,
-        temp: number,
+        temp: number, // temperature
         temp_max: number,
         temp_min: number,
-        humidity: number,
-        pressure: number
+        humidity: number, // humidity
+        pressure: number // pressure
     },
     visibility: string,
     wind: {
         [key: string]: string | number
-        number: number,
+        speed: number, // windSpeed
     },
     clouds: {
         [key: string]: string
     },
-    dt: number
+    dt: number // date
     sys: {
         [key: string]: string
     },
     id: string,
-    name: string,
+    name: string, // cityName
     cod: string
+}
+*/
+export interface ICity {
+    [key: string]: string | {}
+    coordLat : number,
+    coordLon : number,
+    weatherDescription: string,
+    temperature: number,
+    temperatureMax: number,
+    temperatureMin: number,
+    humidity: number,
+    pressure: number,
+    windSpeed: number,
+    date: string,
+    id: number,
+    cityName: string,
+    weatherIcon: string,
+    isCelsius: boolean,
 }
 
 export interface IIcons {

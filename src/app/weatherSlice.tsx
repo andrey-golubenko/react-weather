@@ -1,6 +1,8 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import {API_KEY, API_URL} from '../config'
 import {IInitWeatherSliceState} from '../interfaces'
+import {getWeatherDate} from '../unils/getWeatherDate';
+import {iconsMark} from '../unils/iconsMark';
 
 
 const initialState: IInitWeatherSliceState = {
@@ -22,7 +24,24 @@ export const fetchCities = createAsyncThunk(
             } else if (response.status === 404) {
                 throw new Error('such city not found');
             }
-            return await response.json();
+            const data = await response.json();
+
+            return {
+                temperature: data.main.temp,
+                temperatureMax: data.main.temp_max,
+                temperatureMin: data.main.temp_min,
+                date: getWeatherDate(data.dt),
+                cityName: data.name,
+                windSpeed: data.wind.speed,
+                humidity: data.main.humidity.toFixed(0),
+                pressure: data.main.pressure.toFixed(0),
+                weatherDescription: (data.weather[ 0 ].description).toUpperCase(),
+                weatherIcon: iconsMark(data.weather[ 0 ].id),
+                coordLat: data.coord.lat,
+                coordLon: data.coord.lon,
+                isCelsius: true,
+                id: data.id
+            }
         } catch (error) {
             return rejectWithValue(error.message);
         }
@@ -37,7 +56,24 @@ export const fetchCityUpdate = createAsyncThunk(
             if (!response.ok && response.status !== 404) {
                 throw new Error('Server responded with an error');
             }
-            return await response.json();
+            const data = await response.json();
+
+            return {
+                temperature: data.main.temp,
+                temperatureMax: data.main.temp_max,
+                temperatureMin: data.main.temp_min,
+                date: getWeatherDate(data.dt),
+                cityName: data.name,
+                windSpeed: data.wind.speed,
+                humidity: data.main.humidity.toFixed(0),
+                pressure: data.main.pressure.toFixed(0),
+                weatherDescription: (data.weather[ 0 ].description).toUpperCase(),
+                weatherIcon: iconsMark(data.weather[ 0 ].id),
+                coordLat: data.coord.lat,
+                coordLon: data.coord.lon,
+                isCelsius: true,
+                id: data.id
+            }
         } catch (error) {
             return rejectWithValue(error.message);
         }
@@ -85,9 +121,10 @@ const weatherSlice = createSlice({
         toFahrenheit(state, action) {
             state.cities = state.cities.map((item) => {
                 if (item.id === action.payload) {
-                    item.main.temp = (item.main.temp * 9 / 5) + 32;
-                    item.main.temp_max = (item.main.temp_max * 9 / 5) + 32;
-                    item.main.temp_min = (item.main.temp_min * 9 / 5) + 32;
+                    item.isCelsius = false;
+                    item.temperature = (item.temperature*9/5)+32;
+                    item.temperatureMax = (item.temperatureMax*9/5)+32;
+                    item.temperatureMin = (item.temperatureMin*9/5)+32;
                     return item;
                 }
                 return item;
@@ -96,9 +133,10 @@ const weatherSlice = createSlice({
         toCelsius(state, action) {
             state.cities = state.cities.map((item) => {
                 if (item.id === action.payload) {
-                    item.main.temp = (item.main.temp - 32) * 5 / 9;
-                    item.main.temp_max = (item.main.temp_max - 32) * 5 / 9;
-                    item.main.temp_min = (item.main.temp_min - 32) * 5 / 9;
+                    item.isCelsius = true;
+                    item.temperature = (item.temperature-32)*5/9;
+                    item.temperatureMax = (item.temperatureMax-32)*5/9;
+                    item.temperatureMin = (item.temperatureMin-32)*5/9;
                     return item;
                 }
                 return item;

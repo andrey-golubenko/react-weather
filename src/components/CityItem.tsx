@@ -1,14 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {ICity} from '../interfaces'
 import {useAppDispatch} from '../app/hooks'
-import {getWeatherDate} from '../unils/getWeatherDate'
 import {
     toCelsius,
     toFahrenheit,
     fetchCityUpdate,
     deleteCity
 } from '../app/weatherSlice'
-import {iconsMark} from '../unils/iconsMark'
 import {ReactComponent as IconDelete} from '../media/iconDelete.svg'
 
 
@@ -16,49 +14,38 @@ export const CityItem: React.FC<ICity> = (props) => {
 
     const {
         id = 0,
-        name = '',
-        dt = 0,
-        main = {
-            temp: 0,
-            temp_max: 0,
-            temp_min: 0,
-            humidity: 0,
-            pressure: 0,
-        },
-        weather = [
-            {
-                icon: '',
-                description: ''
-            }
-        ],
-        wind = {speed: 0}
+        cityName = '',
+        date = '',
+        temperature = 0,
+        temperatureMin = 0,
+        temperatureMax = 0,
+        humidity = 0,
+        pressure = 0,
+        description = '',
+        weatherIcon = '',
+        windSpeed = 0,
+        isCelsius = true
     } = props;
-
-    const [degreeMetricCel, setDegreeMetricCel] = useState<boolean>(true);
-
-    const date = getWeatherDate(dt);
-    const weatherIcon = iconsMark(+weather[0].id);
 
     const dispatch = useAppDispatch();
 
+
     const updateToCelsius = (event: React.MouseEvent) => {
-        if (!degreeMetricCel) {
+        if (!isCelsius) {
             dispatch(toCelsius(id));
-            setDegreeMetricCel(prevState => !prevState);
         }
         event.preventDefault();
     };
 
     const updateToFahrenheit = (event: React.MouseEvent) => {
-        if (degreeMetricCel) {
+        if (isCelsius) {
             dispatch(toFahrenheit(id));
-            setDegreeMetricCel(prevState => !prevState);
         }
         event.preventDefault();
     };
 
     const updateSingleCity = (event: React.MouseEvent) => {
-        dispatch(fetchCityUpdate(name));
+        dispatch(fetchCityUpdate(cityName));
         event.preventDefault()
     };
 
@@ -69,7 +56,7 @@ export const CityItem: React.FC<ICity> = (props) => {
 
     let activeDegreeCel = '';
     let activeDegreeFar = '';
-    if (degreeMetricCel) {
+    if (isCelsius) {
         activeDegreeCel = 'active-degree'
     } else {
         activeDegreeFar = 'active-degree'
@@ -79,13 +66,13 @@ export const CityItem: React.FC<ICity> = (props) => {
         <div className="card">
             <div className="card-content">
                 <div className="card-geo-data">
-                    <span className="card-title">{name}</span>
+                    <span className="card-title">{cityName}</span>
                     <span className="card-title">{date}</span>
                 </div>
                 <div className="card-temperature">
                     <div className="card-temperature-degrees">
                         <span>
-                            {Math.round(main.temp)}
+                            {Math.round(temperature)}
                         </span>
                     </div>
                     <div className="card-temperature-measure">
@@ -105,26 +92,24 @@ export const CityItem: React.FC<ICity> = (props) => {
                                 <span className="temperature-mark">↑</span>
                                 <p className="temperature-text">
                                     <span>
-                                        {Math.round(main.temp_max)}
+                                        {Math.round(temperatureMax)}
                                     </span>
                                 </p>
                                 <span className="temperature-unit">
-                                    {degreeMetricCel ? '°C' : '°F'}
+                                    {isCelsius ? '°C' : '°F'}
                                 </span>
                             </div>
                             <div className="temperature-measure-min">
                                 <span className="temperature-mark">↓</span>
                                 <p className="temperature-text">
                                     <span>
-                                        {Math.round(main.temp_min)}
+                                        {Math.round(temperatureMin)}
                                     </span>
                                 </p>
                                 <span className="temperature-unit">
-                                    {degreeMetricCel ? '°C' : '°F'}
+                                    {isCelsius ? '°C' : '°F'}
                                 </span>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -134,14 +119,14 @@ export const CityItem: React.FC<ICity> = (props) => {
                             <i className={weatherIcon}/>
                         </span>
                         <div className="detail-description">
-                            {weather[0].description}
+                            {description}
                         </div>
                     </div>
                     <div className="detail-box">
                         <div className="detail-indicator">
                             <div className="detail-info">
                                     <span>
-                                        {wind.speed}
+                                        {windSpeed}
                                     </span>
                                 <span className="detail-measure">m/s</span>
                             </div>
@@ -150,7 +135,7 @@ export const CityItem: React.FC<ICity> = (props) => {
                         <div className="detail-indicator">
                             <div className="detail-info">
                                     <span>
-                                        {main.humidity}
+                                        {humidity}
                                     </span>
                                 <span className="detail-measure">%</span>
                             </div>
@@ -159,7 +144,7 @@ export const CityItem: React.FC<ICity> = (props) => {
                         <div className="detail-indicator">
                             <div className="detail-info">
                                     <span>
-                                        {main.pressure}
+                                        {pressure}
                                     </span>
                                 <span className="detail-measure">hpa</span>
                             </div>

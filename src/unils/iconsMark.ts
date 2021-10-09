@@ -1,7 +1,7 @@
-import icons from './iconsList.json';
+import icons from './iconsList.json'
 import {IIcons} from '../interfaces'
 
-export function iconsMark(iconId: number) {
+export function iconsMark(iconId: number): string {
     const prefix = 'wi wi-';
     const newIconID = String(iconId);
     const newIcons: IIcons = icons;

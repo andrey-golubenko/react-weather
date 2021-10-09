@@ -126,7 +126,7 @@ export const AutoComplete: React.FC = () => {
             // checking type of entering data
             if (textValue && !(parseInt(textValue) >= 0 || parseInt(textValue) <= 0)) {
                 // checking is required city already in the store
-                const isInStore = citiesFromStore.filter(item => item.name === encodeURIComponent(textValue.split(',')[0]));
+                const isInStore = citiesFromStore.filter(item => item.cityName === encodeURIComponent(textValue.split(',')[0]));
                 if (!isInStore.length) {
                     dispatch(fetchCities(textValue));
                     clearFocusSuggestion();

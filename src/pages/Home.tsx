@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
     }, [cities.length, currentCity, dispatch]);
 
     useEffect(() => {
-        const citiesNames = cities.map(item => item.name);
+        const citiesNames = cities.map(item => item.cityName);
         citiesNames.length
             ? localStorage.setItem('citiesList', JSON.stringify(citiesNames))
             : localStorage.clear();
@@ -53,7 +53,7 @@ export const Home: React.FC = () => {
     return (
         <>
             <Banner/>
-            <AutoComplete />
+            <AutoComplete/>
             {statusIs === 'loading' && <Preloader/>}
             {
                 (hasError === 'Server responded with an error'
@@ -62,7 +62,7 @@ export const Home: React.FC = () => {
             }
             {hasError === 'such city not found' && <Warning/>}
             {hasError === 'You already have such a city'
-                && <Success/>}
+            && <Success/>}
             <CityList/>
         </>
     )

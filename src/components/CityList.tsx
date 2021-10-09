@@ -18,7 +18,7 @@ export const CityList: React.FC = () => {
             {
                 cities.map(item =>
                     <Link
-                        to={`/cities/${item.name.toLowerCase()}`}
+                        to={`/cities/${item.cityName.toLowerCase()!}`}
                         key={item.id}
                     >
                         <CityItem {...item} />
