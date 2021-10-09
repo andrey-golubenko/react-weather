@@ -1,44 +1,5 @@
 import React from 'react';
 
-/*
-export interface ICity {
-    [key: string]: string | {}
-    coord: {
-        lon : number, // coordLat
-        lat : number // coordLon
-    },
-    weather: [
-        {
-            [key: string]: string,
-            icon: string,
-            description: string, // weatherDescription
-        }
-    ],
-    main: {
-        [key: string]: string | number,
-        temp: number, // temperature
-        temp_max: number,
-        temp_min: number,
-        humidity: number, // humidity
-        pressure: number // pressure
-    },
-    visibility: string,
-    wind: {
-        [key: string]: string | number
-        speed: number, // windSpeed
-    },
-    clouds: {
-        [key: string]: string
-    },
-    dt: number // date
-    sys: {
-        [key: string]: string
-    },
-    id: string,
-    name: string, // cityName
-    cod: string
-}
-*/
 export interface ICity {
     [key: string]: string | {}
     coordLat : number,
