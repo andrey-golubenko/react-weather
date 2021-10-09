@@ -1,4 +1,4 @@
-React Weather App 
+##React Weather App 
 
 
 A simple weather app that allows you to get current weather information, based on the city you are.
@@ -23,5 +23,5 @@ When you enter a city in the input field, you will have access to tips that you 
 - Font icons and CSS [weather-icons](https://erikflowers.github.io/weather-icons/)
 -  Publish files on GitHub [gh-pages](https://github.com/tschaub/gh-pages)
 
-# Link for demonstration :
+## Link for demonstration :
  - [Demonstration](https://andrey-golubenko.github.io/react-weather/)
