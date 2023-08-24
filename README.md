@@ -1,7 +1,7 @@
 ## React Weather App 
 
 
-A simple weather app that allows you to get current weather information, based on the city you are (location).
+A simple weather app that allows you to get current weather information, based on the city you are.
 
 When you enter a city in the input field, you will have access to tips that you can select by clicking or navigating through them using the up and down keys, then click enter to select the city you need.
 
