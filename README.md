@@ -1,27 +1,125 @@
-## React Weather App 
+# React Weather - Daily Weather Forecast App
 
+<div align="center">
+  <img src="https://img.shields.io/badge/React-17.0.2-blue?logo=react" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-4.1.5-blue?logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Redux-Toolkit-purple?logo=redux" alt="Redux Toolkit">
+</div>
 
-A simple weather app that allows you to get current weather information, based on the city you are.
+## 🌍 Demo
 
-When you enter a city in the input field, you will have access to tips that you can select by clicking or navigating through them using the up and down keys, then click enter to select the city you need.
+Experience React Weather in action:
 
-## .env.local
+- **Live Demo**: [react-weather](https://andrey-golubenko.github.io/react-weather/)
 
-- REACT_APP_API_KEY - personal key from [openweathermap api_keys](https://home.openweathermap.org/api_keys)
-- REACT_APP_API_KEY_LOCATION - personal key from [ipinfo](https://ipinfo.io/account/home)
-- REACT_APP_API_KEY_AUTO_COMPLETE - personal key from [here.com](https://developer.here.com/documentation/examples/rest/geocoding_suggestions)
+## 📌 Core Features
 
-## Use Api
+- **Location-based weather detection**
+  - Automatic city detection based on user's IP
+  - Manual city search with autocomplete
+- **Comprehensive weather information**
+  - Current temperature
+  - Min/Max temperature
+  - Humidity levels
+  - Wind speed
+  - Atmospheric pressure
+- **Dynamic weather visualization**
+  - Weather condition icons
+  - Temperature graphs
+- **Multi-city management**
+  - Add multiple cities
+  - Remove cities
+  - Update weather data
+- **Temperature unit conversion**
+  - Celsius/Fahrenheit toggle
+- **24-hour forecast**
+  - Detailed hourly weather data
+  - Temperature trends
 
-- get weather data from [openweathermap](https://openweathermap.org/)
-- get user location data from [ipinfo.io](https://ipinfo.io/)
-- get autocomplete data for input from [here.com](https://www.here.com/)
+## 🛠️ Project Features
 
+### ➤ Integration with External Services
 
-## Use Libs
+- **[OpenWeatherMap](https://openweathermap.org/)** - Weather data provider
+  - Current weather conditions
+  - Hourly forecasts
+  - Weather icons and descriptions
+- **[IPInfo](https://ipinfo.io/)** - Location detection service
+  - City detection based on IP
+- **[HERE Maps](https://www.here.com/)** - Location autocomplete
+  - City search suggestions
+  - Geographic data validation
 
-- Font icons and CSS [weather-icons](https://erikflowers.github.io/weather-icons/)
--  Publish files on GitHub [gh-pages](https://github.com/tschaub/gh-pages)
+### ➤ Technology Stack
 
-## Link for demonstration :
- - [Demonstration](https://andrey-golubenko.github.io/react-weather/)
+- **[React](https://reactjs.org/)** - UI library
+- **[TypeScript](https://www.typescriptlang.org/)** - Type safety
+- **[Redux Toolkit](https://redux-toolkit.js.org/)** - State management
+- **[React Router](https://reactrouter.com/)** - Navigation
+- **[Materialize CSS](https://materializecss.com/)** - Styling framework
+- **[Weather Icons](https://erikflowers.github.io/weather-icons/)** - Weather icon font
+
+## 🔧 Required Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```bash
+REACT_APP_API_KEY="your_openweathermap_api_key"
+REACT_APP_LOCATION_API_KEY="your_ipinfo_api_key"
+REACT_APP_AUTO_COMPLETE_API_KEY="your_here_api_key"
+```
+
+## 🚀 Quick Start
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/react-weather.git
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables (see above)
+
+4. Start development server:
+```bash
+npm start
+```
+
+5. Build for production:
+```bash
+npm run build
+```
+
+## 📂 Project Structure
+
+```plaintext
+react-weather/
+├── src/
+│   ├── app/                # Redux store configuration
+│   │   ├── hooks.ts        # Custom Redux hooks
+│   │   ├── store.ts        # Store setup
+│   │   └── weatherSlice.ts # Weather state management
+│   ├── components/         # React components
+│   │   ├── Alert/          # Error notifications
+│   │   ├── Success/        # Success notifications
+│   │   ├── Warning/        # Warning notifications
+│   │   └── ...            # Other UI components
+│   ├── pages/             # Route components
+│   │   ├── Home.tsx       # Main weather display
+│   │   ├── SingleCityList # Detailed city forecast
+│   │   └── NotFound.tsx   # 404 page
+│   ├── utils/             # Helper functions
+│   │   ├── fetchDataLocation.ts
+│   │   ├── getWeatherDate.ts
+│   │   └── iconsMark.ts   # Weather icon mapping
+│   └── interfaces.ts      # TypeScript interfaces
+├── public/               # Static assets
+└── package.json         # Project dependencies
+```
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
